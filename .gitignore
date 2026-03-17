@@ -119,6 +119,22 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local agent artifacts / secrets / large data (MyAgent)
+MyAgent/.env
+MyAgent/.claude/
+MyAgent/.minimax/
+MyAgent/__pycache__/
+MyAgent/**/__pycache__/
+MyAgent/**/*.py[cod]
+MyAgent/data/
+MyAgent/vectorstore/
+MyAgent/vectorstore_backup*/
+MyAgent/server_deploy_backup*/
+MyAgent/**/*.db
+MyAgent/**/*.db-*
+MyAgent/**/*.gz
+MyAgent/=*
+
 # Spyder project settings
 .spyderproject
 .spyproject

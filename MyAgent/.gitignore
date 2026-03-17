@@ -1,0 +1,31 @@
+# Environment
+.env
+.env.*
+# Large data
+data/
+
+vectorstore/
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Claude
+.claude/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Vector store data (may contain large binary files)
+vectorstore/

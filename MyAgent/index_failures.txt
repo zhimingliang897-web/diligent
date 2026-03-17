@@ -1,0 +1,211 @@
+========================================================================================
+time : 2026-02-09T00:35:59
+file : data\macbook\%e5%a4%96%e6%96%87%e7%bf%bb%e8%af%91%e5%8e%9f%e6%96%87.pdf
+stage: embed
+error: NameError("name 'sys' is not defined")
+Traceback (most recent call last):
+  File "E:\MyAgent\agent\rag\vectorstore.py", line 76, in build_vectorstore
+    vectorstore.add_documents(batch)
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_core\vectorstores\base.py", line 258, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\vectorstores\faiss.py", line 340, in add_texts
+    embeddings = self._embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\vectorstores\faiss.py", line 248, in _embed_documents
+    return self.embedding_function.embed_documents(texts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 155, in embed_documents
+    embeddings = embed_with_retry(
+                 ^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 83, in embed_with_retry
+    return _embed_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 66, in _embed_with_retry
+    resp = embeddings.client.call(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\embeddings\text_embedding.py", line 52, in call
+    return super().call(
+           ^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\client\base_api.py", line 515, in call
+    return request.call()
+           ^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\api_entities\http_request.py", line 143, in call
+    output = next(response)
+             ^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\api_entities\http_request.py", line 501, in _handle_request
+    raise e
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\api_entities\http_request.py", line 475, in _handle_request
+    response = session.post(
+               ^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "E:\anaconda_laptop\envs\myagent\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\socket.py", line 718, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\MyAgent\scripts\index_docs.py", line 173, in main
+    vs = build_vectorstore(
+         ^^^^^^^^^^^^^^^^^^
+  File "E:\MyAgent\agent\rag\vectorstore.py", line 91, in build_vectorstore
+    sys.exit(130)
+    ^^^
+NameError: name 'sys' is not defined
+
+========================================================================================
+time : 2026-02-09T00:36:02
+file : data\macbook\033002200411_27979786.pdf
+stage: embed
+error: NameError("name 'sys' is not defined")
+Traceback (most recent call last):
+  File "E:\MyAgent\agent\rag\vectorstore.py", line 76, in build_vectorstore
+    vectorstore.add_documents(batch)
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_core\vectorstores\base.py", line 258, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\vectorstores\faiss.py", line 340, in add_texts
+    embeddings = self._embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\vectorstores\faiss.py", line 248, in _embed_documents
+    return self.embedding_function.embed_documents(texts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 155, in embed_documents
+    embeddings = embed_with_retry(
+                 ^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 83, in embed_with_retry
+    return _embed_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\tenacity\__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 66, in _embed_with_retry
+    resp = embeddings.client.call(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\embeddings\text_embedding.py", line 52, in call
+    return super().call(
+           ^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\client\base_api.py", line 515, in call
+    return request.call()
+           ^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\api_entities\http_request.py", line 143, in call
+    output = next(response)
+             ^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\api_entities\http_request.py", line 501, in _handle_request
+    raise e
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\dashscope\api_entities\http_request.py", line 475, in _handle_request
+    response = session.post(
+               ^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "E:\anaconda_laptop\envs\myagent\Lib\site-packages\urllib3\util\ssl_.py", line 461, in ssl_wrap_socket
+    context.load_verify_locations(ca_certs, ca_cert_dir, ca_cert_data)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\MyAgent\scripts\index_docs.py", line 173, in main
+    vs = build_vectorstore(
+         ^^^^^^^^^^^^^^^^^^
+  File "E:\MyAgent\agent\rag\vectorstore.py", line 91, in build_vectorstore
+    sys.exit(130)
+    ^^^
+NameError: name 'sys' is not defined
+
