@@ -110,11 +110,23 @@ def get_weather(city: str) -> str:
         response.raise_for_status()
         data = response.json()
 
-        current = data["current_condition"][0]
-        area = data["nearest_area"][0]
+        # API 返回的数据可能在 data["data"] 中，也可能直接在顶层
+        api_data = data.get("data", data)
+        current = api_data["current_condition"][0]
 
-        area_name = area["areaName"][0]["value"]
-        country = area["country"][0]["value"]
+        # 获取地区信息（nearest_area 可能不存在）
+        area_name = city
+        country = ""
+        if "nearest_area" in api_data:
+            area = api_data["nearest_area"][0]
+            area_name = area["areaName"][0]["value"]
+            country = area["country"][0]["value"]
+        elif "request" in api_data:
+            # 使用请求中的查询信息
+            req = api_data["request"][0]
+            if req.get("type") == "City":
+                area_name = req.get("query", city)
+
         temp_c = current["temp_C"]
         feels_like = current["FeelsLikeC"]
         humidity = current["humidity"]
@@ -123,8 +135,9 @@ def get_weather(city: str) -> str:
         wind_dir = current["winddir16Point"]
         visibility = current["visibility"]
 
+        location = f"{area_name}, {country}" if country else area_name
         return (
-            f"📍 {area_name}, {country}\n"
+            f"📍 {location}\n"
             f"🌡️ 当前气温: {temp_c}°C（体感 {feels_like}°C）\n"
             f"🌤️ 天气状况: {desc}\n"
             f"💧 湿度: {humidity}%\n"
